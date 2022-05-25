@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Chefs</title>
+</head>
+
+<body>
+    <div style="margin-left: 40px">
+        <h1 style="color :blue">Partner Chef</h1>
+        <br />
+        <h2 style="color :black">List Chef</h2>
+        <div>
+            <a href="/chefs/detail">
+                <button style="background-color: blue; color: white">
+                    Show Detail Duration
+                </button>
+            </a>
+        </div>
+        <br>
+        <table border="1" , style="width : 40%">
+            <tr>
+                <th>FULL NAME</th>
+                <th>BIRTH DATE</th>
+                <th>GENDER</th>
+                <th>CITY</th>
+            </tr>
+
+            <% data.forEach(el=> { %>
+                <tr>
+                    <th>
+                        <%= el.fullName %>
+                    </th>
+                    <th>
+                        <%= el.formatBirthDate%>
+                    </th>
+                    <th>
+                        <%= el.gender %>
+                    </th>
+                    <th>
+                        <%= el.city %>
+                    </th>
+                </tr>
+                <% }); %>
+        </table>
+        <br>
+        <div>
+            <a href="/">
+                <button style="background-color: rgb(85, 85, 87); color: white">
+                    Back
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+<style>
+    button {
+        border: none;
+        border-radius: 5px 5px 5px 5px;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: rgb(8, 117, 168);
+        text-align: center;
+        cursor: pointer;
+        width: 10%;
+        font-size: 11px;
+    }
+</style>
+
+</html>

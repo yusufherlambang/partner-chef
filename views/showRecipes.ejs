@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Recipes</title>
+</head>
+
+<body>
+    <div style="margin-left: 5%">
+        <h1 style="color :blue">Partner Chef</h1>
+        <br />
+        <div>
+            <a href="/recipes/add">
+                <button style="background-color: blue; color: beige;">
+                    Add New Recipes
+                </button>
+            </a>
+        </div><br><br>
+        <div>
+            <form action="/recipes?search" method="GET">
+                <input type="text" name="search"><button
+                    style="background-color: rgb(100, 104, 104); color: beige;">Search</button>
+            </form>
+        </div>
+        <br>
+        <div>
+            <table border="1" , style="width : 80%">
+                <tr>
+                    <th>NAME</th>
+                    <th>DURATION</th>
+                    <th>CATEGORY</th>
+                    <th>TOTAL VOTE</th>
+                    <th>ACTION</th>
+                </tr>
+                <% data.forEach(el=> { %>
+                    <tr>
+                        <th>
+                            <%= el.name %>
+                        </th>
+                        <th>
+                            <%= el.duration %>
+                        </th>
+                        <th>
+                            <%= el.category%>
+                        </th>
+                        <th>
+                            <%= el.totalVote%>
+                        </th>
+                        <th>
+                            <a href="/recipes/<%=el.id %>">
+                                <button style="background-color: blue; color: beige;">
+                                    Read Recipe
+                                </button>
+                            </a>
+                            <a href="/recipes/<%=el.id %>/edit">
+                                <button style="background-color: yellow;">
+                                    Edit
+                                </button>
+                            </a>
+                            <a href="/recipes/<%=el.id %>/delete">
+                                <button style="background-color: red; color: beige;">
+                                    Delete
+                                </button>
+                            </a>
+                        </th>
+                    </tr>
+
+                    <% }); %>
+            </table>
+        </div><br>
+        <div>
+            <a href="/">
+                <button style="background-color: rgb(85, 85, 87); color: white">
+                    Back
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

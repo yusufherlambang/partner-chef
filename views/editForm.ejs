@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Form Recipes</title>
+</head>
+
+<body>
+    <div style="margin-left: 5%;">
+        <div>
+            <h1 style="color :blue">Edit Recipe</h1>
+        </div>
+        <div>
+            <% if (err) { %>
+                <% err = err.split(',') %> 
+                <% err.forEach(el => { %>
+                    <p style="color: red;"><%=el %> </p>
+                <% }) %>
+            <% } %>
+        </div><br><br>
+        <div>
+            <form action="/recipes/<%=data[0].id%>/edit" method="POST">
+                <label for="name">Name :</label>
+                <input type="text" placeholder="name" name="name" style="width: 250px"
+                    value="<%=data[0].name%>"><br><br>
+                <label for="duration">Duration :</label>
+                <input type="number" placeholder="60" name="duration" style="width: 45px"
+                    value="<%=data[0].duration%>">Minutes<br><br>
+                <label for="category">Category :</label>
+                <select name="category" id="category" style="width: 150px">
+                    <option value="Breakfast" <%=data[0].category==="Breakfast" ? "selected" : "" %>>Breakfast
+                    </option>
+                    <option value="Lunch" <%=data[0].category==="Lunch" ? "selected" : "" %>>Lunch
+                    </option>
+                    <option value="Dinner" <%=data[0].category==="Dinner" ? "selected" : "" %>>Dinner
+                    </option>
+                    <option value="Other" <%=data[0].category==="Other" ? "selected" : "" %>>Other
+                    </option>
+                </select><br><br>
+                <label for="notes">Notes :</label><br>
+                <textarea name="notes" id="notes" cols="40" rows="10"
+                    placeholder="Write recipe here"><%=data[0].notes%></textarea><br><br>
+                <label for="imageUrl">Image URL :</label>
+                <input type="text" placeholder="ex : https://contohgambar.com/01.jpg" name="imageUrl"
+                    style="width: 250px" value="<%=data[0].imageUrl%>"><br><br>
+                <label for="ChefId">Chef :</label>
+
+                <select name="ChefId" id="ChefId" style="width: 150px">
+                    <% data.forEach(el=> { %>
+                        <option value="1" <%=el.chefName==="Azka Rasyid" ? "selected" : "" %>>Azka Rasyid
+                        </option>
+                        <option value="2" <%=el.chefName==="Fiona Freeland" ? "selected" : "" %>>Fiona Freeland
+                        </option>
+                        <option value="3" <%=el.chefName==="M. Joko" ? "selected" : "" %>>M. Joko
+                        </option>
+                        <option value="4" <%=el.chefName==="Alex Gio" ? "selected" : "" %>>Alex Gio
+                        </option>
+                        <option value="5" <%=el.chefName==="Haekal Fatur" ? "selected" : "" %>>Haekal Fatur
+                        </option>
+                        <% }) %>
+                </select><br><br>
+                <label for="createdDate">Created Date :</label>
+                <input type="date" placeholder="createdDate" name="createdDate"
+                    value="<%=data[0].formatEditFormCreatedDate%>"><br><br>
+                <input type="submit" value="Submit">
+            </form><br>
+        </div>
+        <div style="margin-left: 0%;">
+            <a href="/recipes">
+                <button style="background-color: rgb(85, 85, 87); color: white">
+                    Cancel
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

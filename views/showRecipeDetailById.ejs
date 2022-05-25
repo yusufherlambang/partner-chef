@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Detail</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h1 style="color :blue; margin-left: 2%;">Partner Chef</h1>
+        </div>
+        <div>
+            <% data.forEach(el=> { %>
+                <div style="margin-left: 5%;">
+                    <h2>
+                        <%= el.name%>
+                    </h2>
+                </div>
+                <div id="main">
+                    <div style="margin-left: 5%;">
+                        <img src="<%=el.imageUrl%>" alt="Produk" style="width:100%">
+                    </div>
+                    <div style="margin-left: 5%;">
+                        <label for="totalVote">Total Vote : <%=el.totalVote%></label><br><br>
+                        <label for="duration">Duration : <%=el.duration%> Minutes</label><br><br>
+                        <label for="category">Category : <%=el.category%></label><br><br>
+                        <label for="chefName">Chef Name : <%=el.chefName%></label><br><br>
+                        <label for="createdDate">The chef made recipe on <%=el.formatCreatedDate%></label><br><br>
+                        <a href="/recipes/<%=el.id %>/vote">
+                            <button>Vote</button>
+                        </a>
+                    </div>
+                </div>
+                <pre style="margin-left: 5%;"><%=el.notes %> </pre>
+                <% }) %>
+        </div>
+        <div style="margin-left: 5%;">
+            <a href="/recipes">
+                <button style="background-color: rgb(85, 85, 87); color: white">
+                    Back
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+<style>
+    #main {
+        width: 55%;
+        height: 320px;
+        border: 0px solid black;
+        display: flex;
+    }
+
+    #main div {
+        -ms-flex: 1;
+        /* IE 10 */
+        flex: 1;
+    }
+
+    button {
+        border: none;
+        border-radius: 5px 5px 5px 5px;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 15%;
+        font-size: 15px;
+    }
+</style>
+
+</html>

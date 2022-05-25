@@ -1,0 +1,28 @@
+{
+  "name": "partner-chef",
+  "version": "1.0.0",
+  "description": "merupakan challnege yang dinilai 💯\r ```txt\r Terbagi 3 Deadline :\r - Part 1 W3D2 09.00 WIB\r - Part 2 W3D3 09.00 WIB\r - Final Deadline W3D4 18.00 WIB\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmt-22-verona-fox/partner-chef.git"
+  },
+  "keywords": [],
+  "author": "M Yusuf Herlambang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmt-22-verona-fox/partner-chef/issues"
+  },
+  "homepage": "https://github.com/rmt-22-verona-fox/partner-chef#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Form Recipes</title>
+</head>
+
+<body>
+    <div style="margin-left: 5%;">
+        <div>
+            <h1 style="color :blue">Add New Recipe</h1>
+        </div>
+        <div>
+            <% if (err) { %>
+                <% err=err.split(',') %>
+                <% err.forEach(el=> { %>
+                    <p style="color: red;"><%=el %></p>
+                <% }) %>
+            <% } %>
+        </div><br><br>
+        <div>
+            <form action="/recipes/add" method="POST">
+                <label for="name">Name :</label>
+                <input type="text" placeholder="name" name="name" style="width: 250px"><br><br>
+                <label for="duration">Duration :</label>
+                <input type="number" placeholder="60" name="duration" style="width: 45px">Minutes<br><br>
+                <label for="category">Category :</label>
+                <select name="category" id="category" style="width: 150px">
+                    <option disabled selected>--Select One--</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Other">Other</option>
+                </select><br><br>
+                <label for="notes">Notes :</label><br>
+                <textarea name="notes" id="notes" cols="40" rows="10"
+                    placeholder="Write recipe here"></textarea><br><br>
+                <label for="imageUrl">Image URL :</label>
+                <input type="text" placeholder="ex : https://contohgambar.com/01.jpg" name="imageUrl"
+                    style="width: 250px"><br><br>
+                <label for="ChefId">Chef :</label>
+                <select name="ChefId" id="ChefId" style="width: 150px">
+                    <option disabled selected>--Select One--</option>
+                    <% data.forEach(el=> { %>
+                        <option value="<%=el.id%> ">
+                            <%=el.fullName %>
+                        </option>
+                        <% }) %>
+                </select><br><br>
+                <label for="createdDate">Created Date :</label>
+                <input type="date" placeholder="createdDate" name="createdDate"><br><br>
+                <input type="submit" value="Submit">
+            </form><br>
+        </div>
+        <div style="margin-left: 0%;">
+            <a href="/recipes">
+                <button style="background-color: rgb(85, 85, 87); color: white">
+                    Cancel
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
